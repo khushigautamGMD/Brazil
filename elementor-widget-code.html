@@ -1,0 +1,1827 @@
+<!-- ==========================================================================
+     PORTAL BRASIL RESPONSÁVEL - CÓDIGO PRONTO PARA WIDGET HTML DO ELEMENTOR
+     Instruções: No WordPress + Elementor, adicione um widget "HTML" e cole este 
+     código completo dentro dele. Funciona tanto em página cheia (Elementor Canvas)
+     quanto dentro de seções do tema.
+     ========================================================================== -->
+
+<!-- Import de fonte do Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  /* ==========================================================================
+     ISOLATED ELEMENTOR SCOPE (.br-lp-root)
+     ========================================================================== */
+  .br-lp-root {
+    --br-bg-main: #070a0c;
+    --br-bg-surface: #0e1417;
+    --br-bg-card: #131b1f;
+    --br-bg-card-hover: #182328;
+    
+    /* Cores do Brasil (Preto, Verde, Amarelo) */
+    --br-green-primary: #00c853;
+    --br-green-deep: #009c3b;
+    --br-green-glow: rgba(0, 200, 83, 0.28);
+    --br-yellow-primary: #ffd000;
+    --br-yellow-gold: #ffb703;
+    --br-yellow-glow: rgba(255, 208, 0, 0.28);
+
+    --br-text-white: #ffffff;
+    --br-text-body: #d1d5db;
+    --br-text-muted: #94a3b8;
+    --br-text-dim: #64748b;
+    --br-border: rgba(255, 255, 255, 0.08);
+    --br-border-hover: rgba(0, 200, 83, 0.35);
+
+    --br-font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    
+    --br-radius-sm: 8px;
+    --br-radius-md: 14px;
+    --br-radius-lg: 20px;
+    --br-radius-full: 9999px;
+
+    --br-shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.6);
+    --br-shadow-glow-green: 0 0 25px rgba(0, 200, 83, 0.25);
+    --br-transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+
+    background-color: var(--br-bg-main);
+    color: var(--br-text-body);
+    font-family: var(--br-font-family);
+    font-size: 16px;
+    line-height: 1.6;
+    position: relative;
+    overflow-x: hidden;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .br-lp-root *,
+  .br-lp-root *::before,
+  .br-lp-root *::after {
+    box-sizing: border-box;
+  }
+
+  /* Efeitos e Luzes de Fundo */
+  .br-lp-root .br-bg-decorations {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .br-lp-root .br-glow-orb-1 {
+    position: absolute;
+    top: -150px;
+    right: -100px;
+    width: 550px;
+    height: 550px;
+    background: radial-gradient(circle, rgba(0, 200, 83, 0.15) 0%, rgba(0, 156, 59, 0.05) 45%, transparent 70%);
+    filter: blur(60px);
+  }
+
+  .br-lp-root .br-glow-orb-2 {
+    position: absolute;
+    top: 600px;
+    left: -150px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(255, 208, 0, 0.1) 0%, rgba(255, 183, 3, 0.03) 50%, transparent 70%);
+    filter: blur(70px);
+  }
+
+  .br-lp-root .br-glow-orb-3 {
+    position: absolute;
+    top: 1900px;
+    right: -120px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(0, 200, 83, 0.12) 0%, transparent 70%);
+    filter: blur(60px);
+  }
+
+  .br-lp-root .br-grid-pattern {
+    position: absolute;
+    inset: 0;
+    background-image: 
+      linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(circle at center, black 40%, transparent 85%);
+    -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 85%);
+  }
+
+  .br-lp-root .br-container {
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 24px;
+    padding-right: 24px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .br-lp-root h1, 
+  .br-lp-root h2, 
+  .br-lp-root h3, 
+  .br-lp-root h4 {
+    color: var(--br-text-white);
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    margin-top: 0;
+  }
+
+  .br-lp-root a {
+    color: inherit;
+    text-decoration: none;
+    transition: var(--br-transition);
+  }
+
+  .br-lp-root .br-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    border-radius: var(--br-radius-full);
+    font-size: 0.84rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    background: rgba(0, 200, 83, 0.1);
+    border: 1px solid rgba(0, 200, 83, 0.25);
+    color: var(--br-green-primary);
+  }
+
+  .br-lp-root .br-badge-yellow {
+    background: rgba(255, 208, 0, 0.1);
+    border-color: rgba(255, 208, 0, 0.25);
+    color: var(--br-yellow-primary);
+  }
+
+  .br-lp-root .br-badge-18 {
+    background: rgba(255, 59, 48, 0.12);
+    border: 1px solid rgba(255, 59, 48, 0.3);
+    color: #ff453a;
+    padding: 4px 10px;
+    font-size: 0.78rem;
+    border-radius: 6px;
+    font-weight: 800;
+  }
+
+  .br-lp-root .br-pill-flag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--br-radius-full);
+    font-size: 0.85rem;
+    color: var(--br-text-muted);
+  }
+
+  .br-lp-root .br-flag-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--br-green-primary);
+    box-shadow: 0 0 10px var(--br-green-primary);
+    display: inline-block;
+  }
+
+  .br-lp-root .br-section-header {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 52px;
+  }
+
+  .br-lp-root .br-section-title {
+    font-size: clamp(2rem, 3.5vw, 2.75rem);
+    margin-top: 14px;
+    margin-bottom: 16px;
+  }
+
+  .br-lp-root .br-section-desc {
+    color: var(--br-text-muted);
+    font-size: 1.1rem;
+    line-height: 1.7;
+  }
+
+  .br-lp-root .br-card {
+    background: var(--br-bg-card);
+    border: 1px solid var(--br-border);
+    border-radius: var(--br-radius-lg);
+    padding: 32px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--br-shadow-card);
+    transition: var(--br-transition);
+  }
+
+  .br-lp-root .br-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--br-green-primary), var(--br-yellow-primary));
+    opacity: 0;
+    transition: var(--br-transition);
+  }
+
+  .br-lp-root .br-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--br-border-hover);
+    background: var(--br-bg-card-hover);
+    box-shadow: var(--br-shadow-card), 0 0 20px rgba(0, 200, 83, 0.12);
+  }
+
+  .br-lp-root .br-card:hover::before {
+    opacity: 1;
+  }
+
+  .br-lp-root .br-icon-box {
+    width: 54px;
+    height: 54px;
+    border-radius: var(--br-radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 22px;
+    background: linear-gradient(135deg, rgba(0, 200, 83, 0.15), rgba(255, 208, 0, 0.08));
+    border: 1px solid rgba(0, 200, 83, 0.25);
+    color: var(--br-green-primary);
+    flex-shrink: 0;
+  }
+
+  .br-lp-root .br-icon-box svg {
+    width: 28px;
+    height: 28px;
+    stroke-width: 2;
+  }
+
+  .br-lp-root .br-icon-box.yellow {
+    background: linear-gradient(135deg, rgba(255, 208, 0, 0.15), rgba(0, 200, 83, 0.08));
+    border-color: rgba(255, 208, 0, 0.25);
+    color: var(--br-yellow-primary);
+  }
+
+  .br-lp-root .br-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 13px 26px;
+    border-radius: var(--br-radius-full);
+    font-weight: 600;
+    font-size: 0.98rem;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: var(--br-transition);
+    text-decoration: none;
+  }
+
+  .br-lp-root .br-btn-primary {
+    background: linear-gradient(135deg, var(--br-green-primary) 0%, var(--br-green-deep) 100%);
+    color: #03210b;
+    font-weight: 700;
+    box-shadow: 0 4px 18px var(--br-green-glow);
+  }
+
+  .br-lp-root .br-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 200, 83, 0.45);
+    background: linear-gradient(135deg, #0fe363 0%, #00ab41 100%);
+    color: #000000;
+  }
+
+  .br-lp-root .br-btn-secondary {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--br-text-white);
+    border: 1px solid var(--br-border);
+  }
+
+  .br-lp-root .br-btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+  }
+
+  /* Header */
+  .br-lp-root .br-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(7, 10, 12, 0.9);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--br-border);
+    padding: 16px 0;
+  }
+
+  .br-lp-root .br-header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .br-lp-root .br-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 800;
+    font-size: 1.15rem;
+    color: var(--br-text-white);
+  }
+
+  .br-lp-root .br-brand-emblem {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #070a0c, #131b1f);
+    border: 1.5px solid var(--br-green-primary);
+    box-shadow: 0 0 12px var(--br-green-glow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .br-lp-root .br-brand-text span {
+    color: var(--br-yellow-primary);
+  }
+
+  .br-lp-root .br-nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+
+  .br-lp-root .br-nav-link {
+    font-size: 0.94rem;
+    font-weight: 500;
+    color: var(--br-text-muted);
+    position: relative;
+    padding: 6px 0;
+  }
+
+  .br-lp-root .br-nav-link:hover {
+    color: var(--br-text-white);
+  }
+
+  .br-lp-root .br-nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--br-green-primary), var(--br-yellow-primary));
+    transition: var(--br-transition);
+  }
+
+  .br-lp-root .br-nav-link:hover::after {
+    width: 100%;
+  }
+
+  .br-lp-root .br-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .br-lp-root .br-btn-mobile-toggle {
+    display: none;
+    background: transparent;
+    border: 1px solid var(--br-border);
+    border-radius: var(--br-radius-sm);
+    color: var(--br-text-white);
+    padding: 8px;
+    cursor: pointer;
+  }
+
+  /* Hero */
+  .br-lp-root .br-hero-section {
+    padding: 90px 0 100px;
+    position: relative;
+  }
+
+  .br-lp-root .br-hero-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 50px;
+    align-items: center;
+  }
+
+  .br-lp-root .br-hero-headline {
+    font-size: clamp(2.4rem, 4.2vw, 3.8rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin: 22px 0 20px;
+    line-height: 1.15;
+  }
+
+  .br-lp-root .text-gradient-green {
+    background: linear-gradient(135deg, #00c853 0%, #a3f78c 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .br-lp-root .text-gradient-yellow {
+    background: linear-gradient(135deg, #ffd000 0%, #ffe978 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .br-lp-root .br-hero-subheadline {
+    font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+    color: var(--br-text-body);
+    line-height: 1.7;
+    margin-bottom: 36px;
+  }
+
+  .br-lp-root .br-hero-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+
+  .br-lp-root .br-hero-trust-bar {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-top: 24px;
+    border-top: 1px solid var(--br-border);
+  }
+
+  .br-lp-root .br-trust-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.86rem;
+    color: var(--br-text-muted);
+  }
+
+  .br-lp-root .br-trust-item svg {
+    color: var(--br-yellow-primary);
+    width: 18px;
+    height: 18px;
+  }
+
+  /* Hero Card */
+  .br-lp-root .br-hero-main-card {
+    background: linear-gradient(145deg, #121a1d, #0d1316);
+    border: 1px solid rgba(0, 200, 83, 0.2);
+    border-radius: var(--br-radius-lg);
+    padding: 34px;
+    box-shadow: var(--br-shadow-card), 0 0 35px rgba(0, 200, 83, 0.1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .br-lp-root .br-live-indicator {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 24px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--br-green-primary);
+  }
+
+  .br-lp-root .br-pulse-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--br-green-primary);
+    box-shadow: 0 0 10px var(--br-green-primary);
+    animation: brPulse 2s infinite;
+  }
+
+  @keyframes brPulse {
+    0% { box-shadow: 0 0 0 0 rgba(0, 200, 83, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(0, 200, 83, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(0, 200, 83, 0); }
+  }
+
+  .br-lp-root .br-hero-metrics {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 24px;
+  }
+
+  .br-lp-root .br-metric-box {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--br-border);
+    border-radius: var(--br-radius-md);
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: var(--br-transition);
+  }
+
+  .br-lp-root .br-metric-box:hover {
+    border-color: rgba(255, 208, 0, 0.3);
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .br-lp-root .br-metric-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: rgba(255, 208, 0, 0.12);
+    color: var(--br-yellow-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .br-lp-root .br-metric-text h4 {
+    font-size: 0.96rem;
+    margin-bottom: 2px;
+  }
+
+  .br-lp-root .br-metric-text p {
+    font-size: 0.82rem;
+    color: var(--br-text-muted);
+    margin-bottom: 0;
+  }
+
+  /* About */
+  .br-lp-root .br-section-about {
+    padding: 90px 0;
+  }
+
+  .br-lp-root .br-about-box {
+    background: linear-gradient(180deg, #10171b 0%, #0c1215 100%);
+    border: 1px solid var(--br-border);
+    border-radius: var(--br-radius-lg);
+    padding: clamp(32px, 5vw, 60px);
+    box-shadow: var(--br-shadow-card);
+  }
+
+  .br-lp-root .br-about-lead {
+    font-size: clamp(1.2rem, 2.2vw, 1.45rem);
+    line-height: 1.7;
+    color: var(--br-text-white);
+    max-width: 950px;
+    margin: 0 auto 48px;
+    text-align: center;
+    font-weight: 500;
+  }
+
+  .br-lp-root .br-about-pillars {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 24px;
+  }
+
+  .br-lp-root .br-pillar-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--br-border);
+    border-radius: var(--br-radius-md);
+    padding: 24px;
+    transition: var(--br-transition);
+  }
+
+  .br-lp-root .br-pillar-card:hover {
+    background: rgba(0, 200, 83, 0.04);
+    border-color: rgba(0, 200, 83, 0.3);
+    transform: translateY(-4px);
+  }
+
+  .br-lp-root .br-pillar-card h3 {
+    font-size: 1.15rem;
+    margin-bottom: 8px;
+  }
+
+  .br-lp-root .br-pillar-card p {
+    font-size: 0.92rem;
+    color: var(--br-text-muted);
+    margin-bottom: 0;
+  }
+
+  /* Information Section */
+  .br-lp-root .br-section-info {
+    padding: 95px 0;
+  }
+
+  .br-lp-root .br-info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 26px;
+  }
+
+  @media (min-width: 992px) {
+    .br-lp-root .br-info-item:nth-child(4) {
+      grid-column: 1 / 2;
+    }
+    .br-lp-root .br-info-item:nth-child(5) {
+      grid-column: 2 / 4;
+    }
+  }
+
+  .br-lp-root .br-info-item {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .br-lp-root .br-info-item h3 {
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+  }
+
+  .br-lp-root .br-info-item p {
+    color: var(--br-text-muted);
+    font-size: 0.96rem;
+    line-height: 1.65;
+    flex-grow: 1;
+  }
+
+  .br-lp-root .br-info-check {
+    margin-top: 18px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--br-green-primary);
+  }
+
+  /* Responsible Section */
+  .br-lp-root .br-section-responsible {
+    padding: 95px 0;
+  }
+
+  .br-lp-root .br-responsible-card {
+    background: linear-gradient(145deg, #161c18, #0e1410);
+    border: 1px solid rgba(0, 200, 83, 0.35);
+    border-radius: var(--br-radius-lg);
+    padding: clamp(34px, 5vw, 60px);
+    box-shadow: 0 15px 40px -15px rgba(0, 200, 83, 0.2);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .br-lp-root .br-resp-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  .br-lp-root .br-resp-content h2 {
+    font-size: clamp(2rem, 3.2vw, 2.75rem);
+    margin: 16px 0 20px;
+  }
+
+  .br-lp-root .br-resp-main-text {
+    font-size: 1.12rem;
+    line-height: 1.75;
+    color: #e2e8f0;
+    margin-bottom: 28px;
+  }
+
+  .br-lp-root .br-resp-highlight-box {
+    background: rgba(255, 208, 0, 0.08);
+    border-left: 4px solid var(--br-yellow-primary);
+    padding: 18px 22px;
+    border-radius: 0 var(--br-radius-md) var(--br-radius-md) 0;
+    margin-bottom: 30px;
+  }
+
+  .br-lp-root .br-resp-highlight-box p {
+    color: var(--br-yellow-primary);
+    font-weight: 600;
+    font-size: 0.98rem;
+    margin-bottom: 0;
+  }
+
+  .br-lp-root .br-help-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .br-lp-root .br-help-item {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--br-border);
+    border-radius: var(--br-radius-md);
+    padding: 20px;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    transition: var(--br-transition);
+  }
+
+  .br-lp-root .br-help-item:hover {
+    border-color: rgba(0, 200, 83, 0.4);
+    background: rgba(255, 255, 255, 0.07);
+  }
+
+  .br-lp-root .br-help-number {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--br-yellow-primary);
+    font-family: monospace;
+  }
+
+  .br-lp-root .br-help-info h4 {
+    font-size: 1.05rem;
+    margin-bottom: 4px;
+  }
+
+  .br-lp-root .br-help-info p {
+    font-size: 0.85rem;
+    color: var(--br-text-muted);
+    margin-bottom: 0;
+  }
+
+  /* Safety Section */
+  .br-lp-root .br-section-safety {
+    padding: 95px 0;
+  }
+
+  .br-lp-root .br-safety-banner {
+    background: linear-gradient(135deg, #10161a 0%, #0a0f12 100%);
+    border: 1px solid var(--br-border);
+    border-radius: var(--br-radius-lg);
+    padding: clamp(34px, 4vw, 54px);
+    box-shadow: var(--br-shadow-card);
+    margin-bottom: 40px;
+  }
+
+  .br-lp-root .br-safety-text-lead {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #e2e8f0;
+    margin-bottom: 0;
+  }
+
+  .br-lp-root .br-safety-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 26px;
+  }
+
+  .br-lp-root .br-safety-card {
+    background: var(--br-bg-card);
+    border: 1px solid var(--br-border);
+    border-radius: var(--br-radius-lg);
+    padding: 30px;
+    transition: var(--br-transition);
+  }
+
+  .br-lp-root .br-safety-card:hover {
+    border-color: rgba(255, 208, 0, 0.35);
+    transform: translateY(-4px);
+  }
+
+  .br-lp-root .br-safety-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+  }
+
+  .br-lp-root .br-safety-card p {
+    font-size: 0.95rem;
+    color: var(--br-text-muted);
+    line-height: 1.65;
+  }
+
+  .br-lp-root .br-safety-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .br-lp-root .br-safety-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.88rem;
+    color: #cbd5e1;
+  }
+
+  .br-lp-root .br-safety-list svg {
+    color: var(--br-green-primary);
+    flex-shrink: 0;
+  }
+
+  /* FAQ Accordion (Modern Web Guidance Compliant) */
+  .br-lp-root .br-section-faq {
+    padding: 95px 0 110px;
+  }
+
+  .br-lp-root .br-faq-container {
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  .br-lp-root .br-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .br-lp-root .br-faq-item {
+    background: var(--br-bg-card);
+    border: 1px solid var(--br-border);
+    border-radius: var(--br-radius-md);
+    overflow: hidden;
+    transition: border-color 0.3s ease, background 0.3s ease;
+  }
+
+  .br-lp-root .br-faq-item[open] {
+    border-color: rgba(0, 200, 83, 0.4);
+    background: #151e22;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+  }
+
+  .br-lp-root .br-faq-summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 22px 26px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--br-text-white);
+    user-select: none;
+    transition: color 0.2s ease;
+  }
+
+  .br-lp-root .br-faq-summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .br-lp-root .br-faq-summary:hover {
+    color: var(--br-green-primary);
+  }
+
+  .br-lp-root .br-faq-title-wrap {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .br-lp-root .br-faq-number {
+    font-size: 0.88rem;
+    font-weight: 800;
+    color: var(--br-yellow-primary);
+    background: rgba(255, 208, 0, 0.1);
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .br-lp-root .br-faq-chevron {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    color: var(--br-text-muted);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
+  }
+
+  .br-lp-root .br-faq-item[open] .br-faq-chevron {
+    transform: rotate(180deg);
+    color: var(--br-green-primary);
+  }
+
+  .br-lp-root .br-faq-item::details-content {
+    interpolate-size: allow-keywords;
+    overflow: clip;
+    contain: layout;
+  }
+
+  .br-lp-root .br-faq-item:not([open])::details-content {
+    block-size: 0;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .br-lp-root .br-faq-item::details-content {
+      transition: block-size 0.3s ease-in-out, content-visibility 0.3s allow-discrete;
+    }
+  }
+
+  .br-lp-root .br-faq-answer {
+    padding: 0 26px 24px 72px;
+    color: var(--br-text-body);
+    font-size: 1rem;
+    line-height: 1.7;
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+    margin-top: 4px;
+    padding-top: 18px;
+  }
+
+  /* Footer */
+  .br-lp-root .br-footer {
+    background: #040608;
+    border-top: 1px solid var(--br-border);
+    padding: 70px 0 40px;
+  }
+
+  .br-lp-root .br-footer-top {
+    display: grid;
+    grid-template-columns: 1.2fr 1.8fr;
+    gap: 40px;
+    padding-bottom: 50px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .br-lp-root .br-footer-brand p {
+    color: var(--br-text-muted);
+    font-size: 0.92rem;
+    margin-top: 14px;
+    max-width: 380px;
+  }
+
+  .br-lp-root .br-footer-links-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 32px;
+    align-items: center;
+  }
+
+  .br-lp-root .br-footer-link {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--br-text-muted);
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    font-family: inherit;
+  }
+
+  .br-lp-root .br-footer-link:hover {
+    color: var(--br-yellow-primary);
+  }
+
+  .br-lp-root .br-footer-notice-box {
+    margin: 40px 0;
+    background: rgba(255, 208, 0, 0.04);
+    border: 1px solid rgba(255, 208, 0, 0.2);
+    border-radius: var(--br-radius-md);
+    padding: 22px 28px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .br-lp-root .br-footer-notice-box svg {
+    color: var(--br-yellow-primary);
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .br-lp-root .br-footer-notice-text {
+    font-size: 0.95rem;
+    color: #e2e8f0;
+    line-height: 1.6;
+  }
+
+  .br-lp-root .br-footer-notice-text strong {
+    color: var(--br-yellow-primary);
+  }
+
+  .br-lp-root .br-footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 0.85rem;
+    color: var(--br-text-dim);
+  }
+
+  .br-lp-root .br-footer-badges {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  /* Modals */
+  .br-modal {
+    border: 1px solid var(--br-border-hover);
+    border-radius: var(--br-radius-lg);
+    background: #0d1417;
+    color: var(--br-text-body);
+    max-width: 600px;
+    width: 90%;
+    margin: auto;
+    padding: 32px;
+    box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.85);
+  }
+
+  .br-modal::backdrop {
+    background: rgba(4, 6, 8, 0.8);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .br-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--br-border);
+  }
+
+  .br-modal-close {
+    background: transparent;
+    border: none;
+    color: var(--br-text-muted);
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 6px;
+  }
+
+  .br-modal-close:hover {
+    color: var(--br-text-white);
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .br-form-group {
+    margin-bottom: 16px;
+  }
+
+  .br-form-group label {
+    display: block;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--br-text-white);
+    margin-bottom: 6px;
+  }
+
+  .br-form-control {
+    width: 100%;
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--br-border);
+    border-radius: var(--br-radius-sm);
+    color: var(--br-text-white);
+    font-family: inherit;
+    font-size: 0.95rem;
+  }
+
+  .br-form-control:focus {
+    outline: none;
+    border-color: var(--br-green-primary);
+    box-shadow: 0 0 0 3px rgba(0, 200, 83, 0.2);
+  }
+
+  /* Responsividade */
+  @media (max-width: 991px) {
+    .br-lp-root .br-nav {
+      position: fixed;
+      top: 72px;
+      left: 0;
+      right: 0;
+      background: #090e11;
+      flex-direction: column;
+      padding: 30px 24px;
+      gap: 20px;
+      border-bottom: 1px solid var(--br-border);
+      display: none;
+    }
+
+    .br-lp-root .br-nav.is-active {
+      display: flex;
+    }
+
+    .br-lp-root .br-btn-mobile-toggle {
+      display: block;
+    }
+
+    .br-lp-root .br-hero-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+      text-align: center;
+    }
+
+    .br-lp-root .br-hero-content {
+      margin: 0 auto;
+    }
+
+    .br-lp-root .br-hero-ctas,
+    .br-lp-root .br-hero-trust-bar {
+      justify-content: center;
+    }
+
+    .br-lp-root .br-info-grid {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .br-lp-root .br-resp-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .br-lp-root .br-footer-top {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+
+    .br-lp-root .br-footer-brand p {
+      margin: 14px auto 0;
+    }
+
+    .br-lp-root .br-footer-links-group {
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .br-lp-root .br-container {
+      padding-left: 18px;
+      padding-right: 18px;
+    }
+
+    .br-lp-root .br-hero-section {
+      padding: 50px 0 60px;
+    }
+
+    .br-lp-root .br-section-about,
+    .br-lp-root .br-section-info,
+    .br-lp-root .br-section-responsible,
+    .br-lp-root .br-section-safety,
+    .br-lp-root .br-section-faq {
+      padding: 60px 0;
+    }
+
+    .br-lp-root .br-hero-trust-bar {
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .br-lp-root .br-hero-ctas {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .br-lp-root .br-hero-ctas .br-btn {
+      width: 100%;
+    }
+
+    .br-lp-root .br-faq-answer {
+      padding-left: 26px;
+    }
+
+    .br-lp-root .br-footer-bottom {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+</style>
+
+<!-- Root Scoped Wrapper for Elementor -->
+<div class="br-lp-root" id="br-lp-wrapper">
+
+  <!-- Ambient Brazilian Lighting -->
+  <div class="br-bg-decorations" aria-hidden="true">
+    <div class="br-glow-orb-1"></div>
+    <div class="br-glow-orb-2"></div>
+    <div class="br-glow-orb-3"></div>
+    <div class="br-grid-pattern"></div>
+  </div>
+
+  <!-- 1. HERO SECTION -->
+  <section class="br-hero-section" id="hero">
+    <div class="br-container br-hero-grid">
+      <div class="br-hero-content">
+        <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 8px;">
+          <div class="br-pill-flag">
+            <span class="br-flag-dot"></span>
+            <span>Portal Brasileiro de Conscientização Digital</span>
+          </div>
+          <span class="br-badge-18">+18 ANOS</span>
+        </div>
+
+        <h1 class="br-hero-headline">
+          Informação, <span class="text-gradient-green">Transparência</span> e <span class="text-gradient-yellow">Jogo Responsável</span>
+        </h1>
+
+        <p class="br-hero-subheadline">
+          Conheça informações importantes sobre entretenimento digital, segurança online e práticas responsáveis no ambiente de jogos.
+        </p>
+
+        <div class="br-hero-ctas">
+          <a href="#sobre" class="br-btn br-btn-primary">
+            Saiba Mais
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+          <a href="#seguranca" class="br-btn br-btn-secondary">
+            Ver Diretrizes de Segurança
+          </a>
+        </div>
+
+        <div class="br-hero-trust-bar">
+          <div class="br-trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>Proteção de Dados</span>
+          </div>
+          <div class="br-trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            <span>Consciência em 1º Lugar</span>
+          </div>
+          <div class="br-trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 4 12 14.01 9 11.01"/><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/></svg>
+            <span>Conteúdo Educativo</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Visual Card -->
+      <div class="br-hero-card-display">
+        <div class="br-hero-main-card">
+          <div class="br-live-indicator">
+            <span class="br-pulse-dot"></span>
+            <span>INFORMAÇÃO SEGURA & AUDITADA</span>
+          </div>
+
+          <h3 style="font-size: 1.45rem; margin-bottom: 12px;">Diretrizes para o Mercado Brasileiro</h3>
+          <p style="color: var(--br-text-muted); font-size: 0.94rem;">
+            O entretenimento digital consciente exige informação clara, autolimites rigorosos e proteção em todas as etapas de navegação.
+          </p>
+
+          <div class="br-hero-metrics">
+            <div class="br-metric-box">
+              <div class="br-metric-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              </div>
+              <div class="br-metric-text">
+                <h4>Controle Financeiro Rigoroso</h4>
+                <p>Nunca utilize recursos destinados a despesas essenciais.</p>
+              </div>
+            </div>
+
+            <div class="br-metric-box">
+              <div class="br-metric-icon" style="background: rgba(0, 200, 83, 0.12); color: var(--br-green-primary);">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              </div>
+              <div class="br-metric-text">
+                <h4>Segurança e Proteção LGPD</h4>
+                <p>Diretrizes alinhadas à legislação brasileira de privacidade.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. ABOUT SECTION -->
+  <section class="br-section-about" id="sobre">
+    <div class="br-container">
+      <div class="br-section-header">
+        <span class="br-badge">Nossa Missão</span>
+        <h2 class="br-section-title">Sobre a Plataforma</h2>
+      </div>
+
+      <div class="br-about-box">
+        <p class="br-about-lead">
+          Nosso objetivo é apresentar informações claras sobre o universo do entretenimento digital, destacando transparência, segurança, conscientização e a importância de decisões responsáveis no ambiente online.
+        </p>
+
+        <div class="br-about-pillars">
+          <div class="br-pillar-card">
+            <div class="br-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            </div>
+            <h3>Transparência</h3>
+            <p>Clareza nas regras, nos riscos e nas dinâmicas que envolvem jogos e apostas digitais.</p>
+          </div>
+
+          <div class="br-pillar-card">
+            <div class="br-icon-box yellow">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </div>
+            <h3>Segurança</h3>
+            <p>Critérios de proteção de dados e autenticidade para garantir que você não caia em armadilhas.</p>
+          </div>
+
+          <div class="br-pillar-card">
+            <div class="br-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            </div>
+            <h3>Conscientização</h3>
+            <p>Educação contínua para entender que apostas são lazer, e não fonte de rendimento.</p>
+          </div>
+
+          <div class="br-pillar-card">
+            <div class="br-icon-box yellow">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3>Responsabilidade</h3>
+            <p>Ferramentas de autogestão, estabelecimento de limites prévios e canais de ajuda.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. INFORMATION SECTION -->
+  <section class="br-section-info" id="informacoes">
+    <div class="br-container">
+      <div class="br-section-header">
+        <span class="br-badge br-badge-yellow">Diretrizes Essenciais</span>
+        <h2 class="br-section-title">O Que Você Precisa Saber</h2>
+        <p class="br-section-desc">
+          Aspectos primordiais que todo participante deve compreender antes de qualquer interação no ambiente digital de jogos.
+        </p>
+      </div>
+
+      <div class="br-info-grid">
+        <div class="br-card br-info-item">
+          <div class="br-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>Segurança e proteção de dados</h3>
+          <p>
+            Garantir que as informações pessoais e financeiras estejam criptografadas sob protocolos modernos (SSL/TLS) e que o ambiente respeite a Lei Geral de Proteção de Dados (LGPD).
+          </p>
+          <span class="br-info-check">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+            Privacidade Garantida
+          </span>
+        </div>
+
+        <div class="br-card br-info-item">
+          <div class="br-icon-box yellow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          <h3>Transparência nas informações</h3>
+          <p>
+            Acesso irrestrito a termos, regras de jogos, taxas, probabilidades de retorno (RTP) e condições de saque claramente expostas, sem cláusulas ocultas ou ambíguas.
+          </p>
+          <span class="br-info-check" style="color: var(--br-yellow-primary);">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+            Regras Claras
+          </span>
+        </div>
+
+        <div class="br-card br-info-item">
+          <div class="br-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          </div>
+          <h3>Conhecimento dos riscos envolvidos</h3>
+          <p>
+            Compreensão inequívoca de que os jogos envolvem aleatoriedade matemática desfavorável ao jogador no longo prazo, trazendo risco real de perda financeira imediata.
+          </p>
+          <span class="br-info-check">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+            Avaliação de Riscos
+          </span>
+        </div>
+
+        <div class="br-card br-info-item">
+          <div class="br-icon-box yellow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h3>Importância dos limites pessoais</h3>
+          <p>
+            A definição prévia e inegociável de tetos de gastos em dinheiro e de tempo dedicado à atividade, impedindo atitudes impulsivas e o hábito prejudicial de tentar recuperar perdas.
+          </p>
+          <span class="br-info-check" style="color: var(--br-yellow-primary);">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+            Autocontrole Financeiro
+          </span>
+        </div>
+
+        <div class="br-card br-info-item">
+          <div class="br-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+          </div>
+          <h3>Conscientização sobre jogos de azar</h3>
+          <p>
+            Entendimento claro de que apostas e jogos de azar são modalidades de entretenimento recreativo para adultos, e jamais devem ser encarados como fonte de renda, profissão ou investimento financeiro.
+          </p>
+          <span class="br-info-check">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+            Educação e Discernimento
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. RESPONSIBLE GAMING SECTION -->
+  <section class="br-section-responsible" id="jogo-responsavel">
+    <div class="br-container">
+      <div class="br-responsible-card">
+        <div class="br-resp-grid">
+          <div class="br-resp-content">
+            <div style="display: flex; gap: 10px; align-items: center;">
+              <span class="br-badge-18">+18 ANOS</span>
+              <span class="br-badge br-badge-yellow">Aviso de Saúde Mental e Financeira</span>
+            </div>
+
+            <h2>Jogue com Responsabilidade</h2>
+
+            <p class="br-resp-main-text">
+              Jogos de azar envolvem riscos financeiros e podem causar dependência. Nunca utilize dinheiro destinado a despesas essenciais. Estabeleça limites pessoais e procure ajuda especializada caso o jogo esteja afetando sua vida.
+            </p>
+
+            <div class="br-resp-highlight-box">
+              <p>
+                ⚠️ <strong>Regra de Ouro:</strong> O entretenimento termina no momento em que ele compromete seu orçamento básico ou gera ansiedade, estresse e isolamento familiar.
+              </p>
+            </div>
+
+            <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+              <a href="#faq" class="br-btn br-btn-primary">Perguntas Frequentes</a>
+              <button class="br-btn br-btn-secondary" onclick="document.getElementById('elModalAjuda').showModal()">Ouvir Especialistas</button>
+            </div>
+          </div>
+
+          <div class="br-help-cards">
+            <div class="br-help-item">
+              <div class="br-help-number">188</div>
+              <div class="br-help-info">
+                <h4>CVV (Centro de Valorização da Vida)</h4>
+                <p>Apoio emocional gratuito e anônimo 24 horas por telefone e chat.</p>
+              </div>
+            </div>
+
+            <div class="br-help-item">
+              <div class="br-help-number" style="color: var(--br-green-primary);">J.A.</div>
+              <div class="br-help-info">
+                <h4>Jogadores Anônimos do Brasil</h4>
+                <p>Irmandade de apoio mútuo para recuperação da compulsão.</p>
+              </div>
+            </div>
+
+            <div class="br-help-item">
+              <div class="br-help-number" style="color: #60a5fa;">PRO</div>
+              <div class="br-help-info">
+                <h4>PRO-AMITI (USP)</h4>
+                <p>Ambulatório Integrado dos Transtornos do Impulso (São Paulo).</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. SAFETY SECTION -->
+  <section class="br-section-safety" id="seguranca">
+    <div class="br-container">
+      <div class="br-section-header">
+        <span class="br-badge">Proteção Digital</span>
+        <h2 class="br-section-title">Sua Segurança é Importante</h2>
+      </div>
+
+      <div class="br-safety-banner">
+        <p class="br-safety-text-lead">
+          Mantenha seus dados pessoais protegidos, leia os termos e condições de qualquer serviço digital e verifique sempre a legalidade e a autorização das plataformas antes de utilizar seus serviços.
+        </p>
+      </div>
+
+      <div class="br-safety-cards">
+        <div class="br-safety-card">
+          <div class="br-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <h3>1. Blindagem de Dados Pessoais</h3>
+          <p>
+            Adote medidas proativas para manter sua identidade e credenciais blindadas contra acessos indevidos e fraudes virtuais.
+          </p>
+          <ul class="br-safety-list">
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Ative autenticação de 2 fatores (2FA)
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Nunca compartilhe senhas ou códigos SMS
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Verifique o certificado SSL (cadeado verde no navegador)
+            </li>
+          </ul>
+        </div>
+
+        <div class="br-safety-card">
+          <div class="br-icon-box yellow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
+          <h3>2. Análise de Termos & Regras</h3>
+          <p>
+            Nunca utilize uma aplicação online sem ler os regulamentos que regem os depósitos, retiradas de saldo e obrigações.
+          </p>
+          <ul class="br-safety-list">
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Consulte as regras de rollover e bônus
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Entenda os prazos e taxas para saques
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Verifique canais de suporte ao cliente em português
+            </li>
+          </ul>
+        </div>
+
+        <div class="br-safety-card">
+          <div class="br-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+          </div>
+          <h3>3. Legalidade e Autorização</h3>
+          <p>
+            No Brasil, verifique se a plataforma atua em conformidade com as diretrizes do Ministério da Fazenda e órgãos reguladores competentes.
+          </p>
+          <ul class="br-safety-list">
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Consulte autorização da SPA/MF (Brasil)
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Evite plataformas fantasmas ou sem CNPJ válido
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Exija canais oficiais de ouvidoria
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. FAQ ACCORDION -->
+  <section class="br-section-faq" id="faq">
+    <div class="br-container">
+      <div class="br-section-header">
+        <span class="br-badge br-badge-yellow">Dúvidas Frequentes</span>
+        <h2 class="br-section-title">Perguntas Frequentes</h2>
+        <p class="br-section-desc">
+          Respostas diretas sobre conceitos essenciais, controle de riscos e verificação de integridade no Brasil.
+        </p>
+      </div>
+
+      <div class="br-faq-container">
+        <section class="br-accordion" aria-label="Perguntas Frequentes">
+          <details class="br-faq-item" name="br-faq-item">
+            <summary class="br-faq-summary">
+              <div class="br-faq-title-wrap">
+                <span class="br-faq-number">01</span>
+                <span>O que são jogos online?</span>
+              </div>
+              <svg class="br-faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </summary>
+            <div class="br-faq-answer">
+              São atividades digitais que podem envolver entretenimento, competição ou jogos de azar.
+            </div>
+          </details>
+
+          <details class="br-faq-item" name="br-faq-item">
+            <summary class="br-faq-summary">
+              <div class="br-faq-title-wrap">
+                <span class="br-faq-number">02</span>
+                <span>Os jogos de azar envolvem riscos?</span>
+              </div>
+              <svg class="br-faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </summary>
+            <div class="br-faq-answer">
+              Sim. Podem resultar em perdas financeiras e dependência.
+            </div>
+          </details>
+
+          <details class="br-faq-item" name="br-faq-item">
+            <summary class="br-faq-summary">
+              <div class="br-faq-title-wrap">
+                <span class="br-faq-number">03</span>
+                <span>Como jogar com responsabilidade?</span>
+              </div>
+              <svg class="br-faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </summary>
+            <div class="br-faq-answer">
+              Estabeleça limites, evite perseguir perdas e nunca utilize dinheiro essencial.
+            </div>
+          </details>
+
+          <details class="br-faq-item" name="br-faq-item">
+            <summary class="br-faq-summary">
+              <div class="br-faq-title-wrap">
+                <span class="br-faq-number">04</span>
+                <span>Como verificar a legalidade de uma plataforma?</span>
+              </div>
+              <svg class="br-faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </summary>
+            <div class="br-faq-answer">
+              Consulte as autoridades competentes e as informações oficiais de autorização.
+            </div>
+          </details>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. FOOTER SECTION -->
+  <footer class="br-footer" id="rodape">
+    <div class="br-container">
+      <div class="br-footer-top">
+        <div class="br-footer-brand">
+          <div class="br-brand">
+            <div class="br-brand-emblem">
+              <svg viewBox="0 0 24 24" fill="none" width="22" height="22">
+                <path d="M12 2L3 7V12C3 17.5 7 21.5 12 22C17 21.5 21 17.5 21 12V7L12 2Z" stroke="#00C853" stroke-width="2"/>
+                <path d="M12 7L16 12H8L12 7Z" fill="#FFD000"/>
+              </svg>
+            </div>
+            <div class="br-brand-text">
+              BRASIL<span>RESPONSÁVEL</span>
+            </div>
+          </div>
+          <p>
+            Plataforma informativa dedicada à promoção de conscientização, segurança cibernética e boas práticas no entretenimento digital.
+          </p>
+        </div>
+
+        <div class="br-footer-links-group">
+          <button class="br-footer-link" onclick="document.getElementById('elModalPrivacidade').showModal()">
+            Política de Privacidade
+          </button>
+          <button class="br-footer-link" onclick="document.getElementById('elModalTermos').showModal()">
+            Termos e Condições
+          </button>
+          <a href="#jogo-responsavel" class="br-footer-link">
+            Jogo Responsável
+          </a>
+          <button class="br-footer-link" onclick="document.getElementById('elModalContato').showModal()">
+            Contacto
+          </button>
+        </div>
+      </div>
+
+      <!-- Disclaimer Obrigatório -->
+      <div class="br-footer-notice-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+          <line x1="12" y1="9" x2="12" y2="13"/>
+          <line x1="12" y1="17" x2="12.01" y2="17"/>
+        </svg>
+        <div class="br-footer-notice-text">
+          <strong>Aviso:</strong> Conteúdo informativo. Não constitui recomendação para participar em jogos de azar.
+        </div>
+      </div>
+
+      <div class="br-footer-bottom">
+        <div>
+          &copy; 2026 Portal Brasil Responsável. Todos os direitos reservados.
+        </div>
+        <div class="br-footer-badges">
+          <span class="br-badge-18">+18</span>
+          <span>Em conformidade com a LGPD</span>
+          <span>Apoio: Ligue 188 (CVV)</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODALS -->
+  <dialog id="elModalPrivacidade" class="br-modal">
+    <div class="br-modal-header">
+      <h3 style="color: var(--br-text-white); font-size: 1.25rem;">Política de Privacidade</h3>
+      <button class="br-modal-close" onclick="document.getElementById('elModalPrivacidade').close()" aria-label="Fechar">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="br-modal-body">
+      <p>Este portal tem finalidade estritamente educativa e informativa. Não coletamos dados pessoais sensíveis, bancários ou de geolocalização dos nossos visitantes sem prévio consentimento.</p>
+      <p>Em conformidade com a Lei Geral de Proteção de Dados (Lei nº 13.709/2018 - LGPD), qualquer interação com o formulário de contato respeita integralmente o sigilo, a privacidade e a segurança das suas informações.</p>
+    </div>
+  </dialog>
+
+  <dialog id="elModalTermos" class="br-modal">
+    <div class="br-modal-header">
+      <h3 style="color: var(--br-text-white); font-size: 1.25rem;">Termos e Condições</h3>
+      <button class="br-modal-close" onclick="document.getElementById('elModalTermos').close()" aria-label="Fechar">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="br-modal-body">
+      <p>Todo o conteúdo deste site foi elaborado com propósitos exclusivamente informativos e de incentivo às práticas de jogo responsável e segurança cibernética no Brasil.</p>
+      <p>As informações aqui presentes não configuram incentivo, intermediação, patrocínio ou recomendação para apostas de qualquer natureza. O usuário é o único responsável por suas decisões individuais e financeiras.</p>
+    </div>
+  </dialog>
+
+  <dialog id="elModalContato" class="br-modal">
+    <div class="br-modal-header">
+      <h3 style="color: var(--br-text-white); font-size: 1.25rem;">Contacto & Apoio</h3>
+      <button class="br-modal-close" onclick="document.getElementById('elModalContato').close()" aria-label="Fechar">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="br-modal-body">
+      <p>Tem dúvidas, sugestões ou necessita de orientação sobre iniciativas de conscientização no Brasil? Envie sua mensagem:</p>
+      <form onsubmit="event.preventDefault(); alert('Mensagem enviada com sucesso! Obrigado pelo contato.'); this.closest('dialog').close();">
+        <div class="br-form-group">
+          <label for="elContactNome">Nome Completo</label>
+          <input type="text" id="elContactNome" class="br-form-control" placeholder="Seu nome" required>
+        </div>
+        <div class="br-form-group">
+          <label for="elContactEmail">E-mail</label>
+          <input type="email" id="elContactEmail" class="br-form-control" placeholder="seuemail@exemplo.com.br" required>
+        </div>
+        <div class="br-form-group">
+          <label for="elContactMsg">Mensagem</label>
+          <textarea id="elContactMsg" class="br-form-control" rows="3" placeholder="Como podemos ajudar?" required></textarea>
+        </div>
+        <button type="submit" class="br-btn br-btn-primary" style="width: 100%; margin-top: 10px;">Enviar Mensagem</button>
+      </form>
+    </div>
+  </dialog>
+
+  <dialog id="elModalAjuda" class="br-modal">
+    <div class="br-modal-header">
+      <h3 style="color: var(--br-yellow-primary); font-size: 1.25rem;">Canais de Apoio Especializado</h3>
+      <button class="br-modal-close" onclick="document.getElementById('elModalAjuda').close()" aria-label="Fechar">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="br-modal-body">
+      <p>Se você ou alguém próximo está enfrentando dificuldades com o controle de apostas, lembre-se de que não está sozinho. O suporte profissional é acolhedor, confidencial e gratuito:</p>
+      <ul style="list-style: disc; margin-left: 20px; margin-bottom: 16px; color: #e2e8f0; font-size: 0.95rem;">
+        <li><strong>CVV (Centro de Valorização da Vida):</strong> Ligue <strong>188</strong> ou acesse cvv.org.br</li>
+        <li><strong>Jogadores Anônimos do Brasil:</strong> jogadoresanonimos.com.br</li>
+        <li><strong>PRO-AMITI (USP):</strong> Instituto de Psiquiatria do Hospital das Clínicas</li>
+      </ul>
+      <p style="font-size: 0.88rem; color: var(--br-text-muted);">
+        A recuperação é sempre possível. Dê o primeiro passo estabelecendo pausas ou solicitando a autoexclusão das plataformas.
+      </p>
+    </div>
+  </dialog>
+
+</div>
+
+<script>
+  (function() {
+    if (!Object.hasOwn(HTMLDetailsElement.prototype, "name")) {
+      document.addEventListener("toggle", event => {
+        const details = event.target;
+        if (!(details instanceof HTMLDetailsElement) || !details.open || !details.hasAttribute("name")) return;
+        const name = CSS.escape(details.getAttribute("name"));
+        for (const other of document.querySelectorAll(`details[name="${name}"]`)) {
+          if (other !== details) other.open = false;
+        }
+      }, { capture: true });
+    }
+
+    document.querySelectorAll('.br-modal').forEach(dialog => {
+      dialog.addEventListener('click', (event) => {
+        const rect = dialog.getBoundingClientRect();
+        if (event.clientY < rect.top || event.clientY > rect.bottom || event.clientX < rect.left || event.clientX > rect.right) {
+          dialog.close();
+        }
+      });
+    });
+  })();
+</script>
