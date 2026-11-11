@@ -1,56 +1,54 @@
-# Responsible Gaming Landing Page 🛡️
+# Landing Page - Informação, Transparência e Jogo Responsável 🇧🇷
 
-A modern, mobile-responsive **Elementor HTML/CSS landing page** designed with high-conversion dark-mode aesthetics inspired by the **Brazilian color harmony** (Deep Obsidian Black, Vibrant Emerald Green, and Radiant Canary Gold).
+Esta landing page foi desenvolvida sob medida com design contemporâneo e de alta conversão, inspirado nas cores do **Brasil** (Preto Ônix, Verde Esmeralda Vibrante e Amarelo Ouro Solar).
 
-Engineered to be lightweight, zero-dependency, and fully compatible with **WordPress Elementor** (via the custom HTML Code Widget or Elementor Canvas) as well as standalone hosting environments (Vercel, Netlify, GitHub Pages, Apache, Nginx).
+Conta com arquitetura 100% responsiva (Mobile-First), suporte nativo para o **WordPress Elementor** (Widget de Código HTML ou Modelo Canvas) e conformidade com as melhores práticas da **Web Moderna** (acessibilidade WCAG, acordeão nativo animado com `<details>` e `::details-content`, e diálogos modais para conformidade com a LGPD).
 
 ---
 
-## 📁 Repository Structure
+## 📁 Estrutura dos Arquivos
 
-| File | Description |
+| Arquivo | Descrição |
 | :--- | :--- |
-| `index.html` | Complete standalone landing page (HTML5 + CSS3 + Vanilla JS inline). Open directly in any browser or deploy immediately to any static web host. |
-| `elementor-widget-code.html` | Scoped and isolated code block (`#br-lp-wrapper`) optimized to copy and paste directly into the Elementor **HTML Code Widget** with zero styling collisions. |
-| `styles.css` | Modular external stylesheet with clean CSS variables and responsive rules. |
-| `script.js` | Modular JavaScript handling accessible native `<details>` accordion controls and modal dialogs. |
-| `server.js` | Built-in zero-dependency Node.js HTTP server for instant local preview. |
+| `index.html` | Página completa e autônoma (HTML + CSS + JS inline) em Português do Brasil. Pronta para abrir diretamente no navegador ou hospedar em servidores estáticos. |
+| `elementor-widget-code.html` | Código isolado e prefixado (`#br-lp-wrapper`) otimizado especificamente para copiar e colar no **Widget HTML** do Elementor no WordPress sem causar conflito de estilos. |
+| `styles.css` | Folha de estilo externa modular caso prefira carregar o CSS separadamente no tema filho (`style.css` ou Personalizador do WordPress). |
+| `script.js` | Arquivo JavaScript desacoplado para acordeão e transições suaves de âncora. |
+| `server.js` | Servidor HTTP em Node.js sem dependências externas para testes locais imediatos (`localhost:3000`). |
 
 ---
 
-## 🚀 How to Use in WordPress with Elementor
+## 🚀 Como Usar no WordPress com Elementor
 
-### Method 1: Copy & Paste into Elementor (Recommended)
-1. In your WordPress dashboard, create or edit a page with **Elementor**.
-2. In the page settings (gear icon at the bottom-left), set the **Page Layout** to **Elementor Canvas** (for a full-page clean aesthetic) or **Elementor Full Width**.
-3. Insert a single full-width section/container with `0px` padding.
-4. Drag and drop Elementor's native **HTML** widget into the section.
-5. Open `elementor-widget-code.html`, copy all contents, and paste into the HTML widget.
-6. Click **Publish** or **Update**.
+### Método 1: Copiar e Colar Direto no Elementor (Recomendado)
+1. No painel do WordPress, crie ou edite uma página com o **Elementor**.
+2. Nas configurações da página (ícone de engrenagem no canto inferior esquerdo), defina a **Estrutura da Página** (Page Layout) como **Elementor Canvas** (para página limpa) ou **Largura Total do Elementor**.
+3. Adicione uma nova seção/container de largura total (Full Width) com preenchimento zerado (`padding: 0`).
+4. Arraste o widget **HTML** do Elementor para dentro da coluna.
+5. Abra o arquivo `elementor-widget-code.html`, copie todo o seu conteúdo e cole no campo de código do widget.
+6. Clique em **Atualizar** ou **Publicar**.
 
-### Method 2: Standalone Web Hosting
-- Upload `index.html` directly to your root web folder on any hosting provider.
-- Loads with sub-second performance and zero external framework overhead.
-
----
-
-## 🎨 Color Palette & Design System
-
-- **Primary Background:** `#070a0c` & `#0e1417` (Deep Obsidian / Carbon)
-- **Card Surfaces:** `#131b1f` (with subtle glow hover `#182328`)
-- **Emerald Green Accent:** `#00c853` (vibrant) & `#009c3b` (deep flag green)
-- **Canary Gold / Yellow Accent:** `#ffd000` & `#ffb703`
-- **Typography:** `Plus Jakarta Sans` (Google Fonts with standard system fallbacks)
+### Método 2: Como Página Estática Independente
+- Faça o upload do arquivo `index.html` para a raiz do seu servidor web (Apache, Nginx, Hostinger, cPanel, Vercel, Netlify, etc.).
+- A página carrega instantaneamente, sem dependência de bibliotecas pesadas.
 
 ---
 
-## 📄 Sections Included
+## 🎨 Paleta de Cores & Design System
 
-1. **Hero Section:** High-impact headline (*Information, Transparency and Responsible Gaming*), 18+ alert badge, primary/secondary CTAs, and trust metrics.
-2. **About Section:** Mission statement and 4 core values (Transparency, Security, Awareness, Responsibility).
-3. **Information Section:** 5 essential player guidance points (Data security, Transparent information, Risk awareness, Personal limits, and Nature of games of chance).
-4. **Responsible Gaming Section:** Crucial financial & wellbeing advisory, golden rules, and support hotlines.
-5. **Safety Section:** Practical 3-pillar safety audit checklist (Data shielding, Terms review, Legality and licensing).
-6. **FAQ Section:** Modern animated accordion answering the 4 core questions with full keyboard accessibility.
-7. **Footer & Legal Disclaimer:** Quick links (Privacy Policy, Terms, Contact) and the mandatory official notice:
-   > *"Notice: Informational content. Does not constitute a recommendation to participate in games of chance."*
+- **Fundo Principal (Black/Ônix):** `#070a0c` e `#0e1417`
+- **Superfície de Cards:** `#131b1f` (com efeito de hover `#182328`)
+- **Verde Brasil Primário:** `#00c853` (vibrante) e `#009c3b` (bandeira oficial)
+- **Brilho Verde Suave:** `rgba(0, 200, 83, 0.28)`
+- **Amarelo Canário / Ouro:** `#ffd000` e `#ffdf00`
+- **Brilho Amarelo Suave:** `rgba(255, 208, 0, 0.28)`
+- **Tipografia:** `Plus Jakarta Sans` (Google Fonts, com fallbacks do sistema)
+
+---
+
+## 🛡️ Conformidade e Jogo Responsável no Brasil
+- Contém alerta explícito para maiores de **+18 anos**.
+- Destaque para canais de acolhimento e suporte gratuitos: **CVV (Ligue 188)** e **Jogadores Anônimos do Brasil**.
+- Modais interativos com declarações de conformidade com a **LGPD (Lei Geral de Proteção de Dados)** e **Termos de Uso Informativos**.
+- Aviso legal obrigatório em conformidade com as diretrizes regulatórias:
+  > *"Aviso: Conteúdo informativo. Não constitui recomendação para participar em jogos de azar."*
